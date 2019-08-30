@@ -35,15 +35,15 @@ export class ActorServices{
         }
     }
 
-    public static async updateById(req:express.Request, res: express.Response){
+    public static async updateActorById(req:express.Request, res: express.Response){
         try{
-            let actor:any = await actorModel.findOne(req.body.name).exec();
-            actor.name = req.body.name;
-            actor.sex = req.body.sex;
-            actor.DOB = req.body.DOB;
-            actor.bio = req.body.bio;
-            await actor.save();
-            return actor;
+            let updateActor:any = await actorModel.findById(req.params.actorId).exec();
+            updateActor.name = req.body.name;
+            updateActor.sex = req.body.sex;
+            updateActor.DOB = req.body.DOB;
+            updateActor.bio = req.body.bio;
+            await updateActor.save();
+            return updateActor;
         }
         catch(err){
             console.log(err);

@@ -13,25 +13,25 @@ class movieController {
     createMovie(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield movieServices_1.MovieServices.createMovie(req, res);
-            return result;
+            res.json(result);
         });
     }
     getAllMovies(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield movieServices_1.MovieServices.getAllMovies(req, res);
-            return result;
+            res.json(result);
         });
     }
     getMovieById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield movieServices_1.MovieServices.getMovieById(req, res);
-            return result;
+            res.json(result);
         });
     }
     updateMovieById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield movieServices_1.MovieServices.updateMovieById(req, res);
-            return result;
+            res.json(result);
         });
     }
 }

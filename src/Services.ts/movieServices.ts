@@ -38,10 +38,12 @@ export class MovieServices{
 
     public static async updateMovieById(req:express.Request, res:express.Response){
         try{
-            let movie:any = await moviesModel.findById(req.params.movieId).exec();
-        movie.name = req.body.name;
-        movie.yearOfRelease = req.body.yearOfRelease;
-        movie.plot = req.body.plot;
+            let updateMovie:any = await moviesModel.findById(req.params.movieId).exec();
+            updateMovie.name = req.body.name;
+            updateMovie.yearOfRelease = req.body.yearOfRelease;
+            updateMovie.plot = req.body.plot;
+            await updateMovie.save();
+            return updateMovie;
         }
         catch(err){
             console.log(err);

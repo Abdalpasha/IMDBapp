@@ -18,19 +18,19 @@ class ActorController {
     }
     getAllActors(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            let result = actorService_1.ActorServices.getAllActors(req, res);
+            let result = yield actorService_1.ActorServices.getAllActors(req, res);
             res.json(result);
         });
     }
     getActorById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            let result = actorService_1.ActorServices.getActorById(req, res);
+            let result = yield actorService_1.ActorServices.getActorById(req, res);
             res.json(result);
         });
     }
     updateActorById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            let result = actorService_1.ActorServices.updateById(req, res);
+            let result = yield actorService_1.ActorServices.updateActorById(req, res);
             res.json(result);
         });
     }

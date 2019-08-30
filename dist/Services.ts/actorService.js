@@ -45,16 +45,16 @@ class ActorServices {
             }
         });
     }
-    static updateById(req, res) {
+    static updateActorById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let actor = yield actorsModel_1.actorModel.findOne(req.body.name).exec();
-                actor.name = req.body.name;
-                actor.sex = req.body.sex;
-                actor.DOB = req.body.DOB;
-                actor.bio = req.body.bio;
-                yield actor.save();
-                return actor;
+                let updateActor = yield actorsModel_1.actorModel.findById(req.params.actorId).exec();
+                updateActor.name = req.body.name;
+                updateActor.sex = req.body.sex;
+                updateActor.DOB = req.body.DOB;
+                updateActor.bio = req.body.bio;
+                yield updateActor.save();
+                return updateActor;
             }
             catch (err) {
                 console.log(err);

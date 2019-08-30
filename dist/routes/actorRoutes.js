@@ -7,4 +7,4 @@ exports.ActorRoutes = express_1.Router();
 exports.ActorRoutes.post('/create', actorControllerObject.createActor);
 exports.ActorRoutes.get('/', actorControllerObject.getAllActors);
 exports.ActorRoutes.get('/:actorId', actorControllerObject.getActorById);
-exports.ActorRoutes.put('/:actorId', actorControllerObject.updateActorById);
+exports.ActorRoutes.put('/update/:actorId', actorControllerObject.updateActorById);

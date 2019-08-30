@@ -38,7 +38,7 @@ class ProducerService {
     static getProducerById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let producerId = yield producerModel_1.producerModel.findById(req.params.id).exec();
+                let producerId = yield producerModel_1.producerModel.findById(req.params.producerId).exec();
                 return producerId;
             }
             catch (err) {
@@ -50,11 +50,13 @@ class ProducerService {
     static updateProducerById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let updatedProducer = yield producerModel_1.producerModel.findById(req.params.id).exec();
+                let updatedProducer = yield producerModel_1.producerModel.findById(req.params.producerId).exec();
                 updatedProducer.name = req.body.name;
                 updatedProducer.sex = req.body.sex;
                 updatedProducer.DOB = req.body.DOB;
                 updatedProducer.bio = req.body.bio;
+                yield updatedProducer.save();
+                return updatedProducer;
             }
             catch (err) {
                 console.log(err);

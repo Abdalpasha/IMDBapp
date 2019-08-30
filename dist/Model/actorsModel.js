@@ -8,6 +8,6 @@ const actorSchema = new mongoose_1.default.Schema({
     "name": { type: String, required: true },
     "sex": { type: String, required: true },
     "DOB": { type: String, required: true },
-    "Bio": { type: String, required: true }
+    "bio": { type: String, required: true }
 });
 exports.actorModel = mongoose_1.default.model('actor', actorSchema);

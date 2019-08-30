@@ -27,7 +27,7 @@ export class ProducerService{
 
     public static async getProducerById(req:express.Request, res:express.Response){
         try{
-            let producerId = await producerModel.findById(req.params.id).exec();
+            let producerId = await producerModel.findById(req.params.producerId).exec();
             return producerId
         }
         catch(err){
@@ -38,11 +38,13 @@ export class ProducerService{
 
     public static async updateProducerById(req:express.Request, res:express.Response){
         try{
-            let updatedProducer : any = await producerModel.findById(req.params.id).exec()
+            let updatedProducer : any = await producerModel.findById(req.params.producerId).exec()
             updatedProducer.name = req.body.name;
             updatedProducer.sex = req.body.sex;
             updatedProducer.DOB = req.body.DOB;
             updatedProducer.bio = req.body.bio;
+            await updatedProducer.save();
+            return updatedProducer;
         }
         catch(err){
             console.log(err);

@@ -13,25 +13,25 @@ class ProducerController {
     static createProducer(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield producerService_1.ProducerService.createNewProducer(req, res);
-            return result;
+            res.json(result);
         });
     }
     static getAllProducers(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield producerService_1.ProducerService.getAllProducers(req, res);
-            return result;
+            res.json(result);
         });
     }
     static getProducerById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield producerService_1.ProducerService.getProducerById(req, res);
-            return result;
+            res.json(result);
         });
     }
     static updateProducerById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield producerService_1.ProducerService.updateProducerById(req, res);
-            return result;
+            res.json(result);
         });
     }
 }

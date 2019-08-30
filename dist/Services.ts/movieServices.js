@@ -50,10 +50,12 @@ class MovieServices {
     static updateMovieById(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let movie = yield moviesModel_1.moviesModel.findById(req.params.movieId).exec();
-                movie.name = req.body.name;
-                movie.yearOfRelease = req.body.yearOfRelease;
-                movie.plot = req.body.plot;
+                let updateMovie = yield moviesModel_1.moviesModel.findById(req.params.movieId).exec();
+                updateMovie.name = req.body.name;
+                updateMovie.yearOfRelease = req.body.yearOfRelease;
+                updateMovie.plot = req.body.plot;
+                yield updateMovie.save();
+                return updateMovie;
             }
             catch (err) {
                 console.log(err);

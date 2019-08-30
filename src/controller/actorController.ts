@@ -8,17 +8,17 @@ export class ActorController{
     }
 
     public async getAllActors(req:express.Request, res: express.Response){
-        let result = ActorServices.getAllActors(req,res);
+        let result = await ActorServices.getAllActors(req,res);
         res.json(result)
     }
 
     public async getActorById(req:express.Request, res:express.Response){
-        let result = ActorServices.getActorById(req,res);
+        let result = await ActorServices.getActorById(req,res);
         res.json(result);
     }
 
     public async updateActorById(req:express.Request, res: express.Response){
-        let result = ActorServices.updateById(req,res);
+        let result = await ActorServices.updateActorById(req,res);
         res.json(result);
     }
 }
